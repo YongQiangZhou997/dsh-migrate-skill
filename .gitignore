@@ -1,0 +1,9 @@
+# 打包产物
+*.tar.gz
+*.tgz
+dsh-config-*
+
+# 编辑器 / 系统
+.DS_Store
+.idea/
+.vscode/

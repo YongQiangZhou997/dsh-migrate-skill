@@ -1,0 +1,26 @@
+{
+  "name": "dsh-migrate",
+  "version": "0.1.0",
+  "description": "Package a DSH configuration into a self-describing bundle and restore it on another machine.",
+  "type": "module",
+  "bin": {
+    "dsh-migrate": "bin/dsh-migrate.mjs"
+  },
+  "files": [
+    "bin"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dotfiles",
+    "migration",
+    "configuration"
+  ],
+  "license": "MIT"
+}

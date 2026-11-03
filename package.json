@@ -1,7 +1,7 @@
 {
   "name": "dsh-migrate",
   "version": "0.1.0",
-  "description": "Package a DSH configuration into a self-describing bundle and restore it on another machine.",
+  "description": "Package a DeepSeek Harness (DSH) configuration into a self-describing bundle and restore it on another machine.",
   "type": "module",
   "bin": {
     "dsh-migrate": "bin/dsh-migrate.mjs"

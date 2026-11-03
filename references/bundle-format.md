@@ -4,7 +4,7 @@
 
 ```
 RESTORE.md              还原步骤（不装工具也能照做）
-plugins.json            插件 + DSH / Node 版本
+plugins.json            插件 + DeepSeek Harness（DSH）/ Node 版本
 skills.global.json      全局 skills；有 git 出处的带 source/ref/path
 skills.project.json     项目级 skills（属于项目仓库，通常为空）
 dsh-migrate/

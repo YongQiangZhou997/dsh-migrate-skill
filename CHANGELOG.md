@@ -18,7 +18,7 @@
 - 拒绝归档中的符号/硬链接成员；payload 出现任何符号链接即退出 3；导出端不再携带链接
 - 归档路径校验按反斜杠与 UNC 归一化，防 Windows 路径绕过
 - `die()` 改为抛异常，保证暂存目录（可能含凭据副本）在退出前被清理
-- DSH 未安装时 `meta.env` 写 `dsh_version=unknown`，`verify` 不再误判
+- DeepSeek Harness（DSH）未安装时 `meta.env` 写 `dsh_version=unknown`，`verify` 不再误判
 - 缺少 `MANIFEST.sha256`、清单行格式错误、清单项是目录：明确报错并退出 3
 - 无插件依赖的 profile 不再要求 `node_modules`
 - `RESTORE.md` 按实际内容描述是否含凭据

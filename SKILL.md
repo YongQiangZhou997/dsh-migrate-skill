@@ -1,9 +1,9 @@
 ---
 name: dsh-migrate
-description: 把 DSH 配置（插件、patch 覆盖层、skills、皮肤）打包成自描述 bundle 并在另一台机器还原，或备份/体检。当用户说"迁移 DSH""换电脑""备份配置""复刻环境""把服务器配置搬到本机"时使用。
+description: 把 DeepSeek Harness（DSH）的配置（插件、patch 覆盖层、skills、皮肤）打包成自描述 bundle 并在另一台机器还原，或备份/体检。当用户说"迁移 DSH""换电脑""备份配置""复刻环境""把服务器配置搬到本机"时使用。
 ---
 
-# DSH 配置迁移
+# DeepSeek Harness（DSH）配置迁移
 
 判断本机角色：
 

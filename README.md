@@ -1,6 +1,6 @@
 # dsh-migrate
 
-DSH 配置打包成一个自描述 bundle，换机器还原。Linux / macOS / Windows 通用。
+DeepSeek Harness（DSH）的配置打包成一个自描述 bundle，换机器还原。Linux / macOS / Windows 通用。
 
 ```bash
 # 旧机器

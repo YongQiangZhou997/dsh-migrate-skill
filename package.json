@@ -1,5 +1,5 @@
 {
-  "name": "dsh-migrate",
+  "name": "dsh-migrate-skill",
   "version": "0.1.0",
   "description": "Package a DeepSeek Harness (DSH) configuration into a self-describing bundle and restore it on another machine.",
   "type": "module",
@@ -22,5 +22,9 @@
     "migration",
     "configuration"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YongQiangZhou997/dsh-migrate-skill.git"
+  }
 }

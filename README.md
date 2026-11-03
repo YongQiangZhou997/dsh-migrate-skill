@@ -1,32 +1,44 @@
 # dsh-migrate
 
-DeepSeek Harness（DSH）的配置打包成一个自描述 bundle，换机器还原。Linux / macOS / Windows 通用。
+一个 **DeepSeek Harness（DSH）skill**：把整台机器的 DSH 配置打包成一个自描述 bundle，换机器后让 DSH 自己还原。
+
+## 装成 skill
 
 ```bash
-# 旧机器
+git clone https://github.com/YongQiangZhou997/dsh-migrate.git ~/.agents/skills/dsh-migrate
+```
+
+或在 DSH 技能面板里导入仓库 / zip。装完直接说：
+
+- “帮我把这台机器的 DSH 配置打包，准备搬到我笔记本”
+- “按这个包把新机器配好”
+- “检查一下我的 DSH 配置完整吗”
+
+## 它做什么
+
+| 动作 | 内容 |
+|---|---|
+| 打包 | profile 配置、patch 覆盖层、四个 skills 根、皮肤、工作区登记 |
+| 还原 | 逐文件校验 → 备份被覆盖文件 → 写入 → 提示重装插件 |
+| 体检 | 版本、插件、patch 漂移、skills、皮肤、工作区路径 |
+
+包内自带 `RESTORE.md` 和三份清单（`plugins.json`、`skills.global.json`、`skills.project.json`），不装 skill 也能照着做。
+
+## 也可以直接用
+
+```bash
 node bin/dsh-migrate.mjs export -o ~/dsh-config.tar.gz
-
-# 新机器（PowerShell 用户：把 $DSH_HOME 换成 $env:DSH_HOME）
-tar -xzf dsh-config.tar.gz
-node dsh-migrate/dsh-migrate.mjs import . --apply
-DSH_HOME=~/.dsh dsh plugin --profile web install
+node bin/dsh-migrate.mjs import <bundle> --apply
+node bin/dsh-migrate.mjs verify --bundle <dir>
 ```
 
-要求：Node ≥ 20（DSH 自带）+ 系统 `tar`（Win10 1803+ 自带）。
+要求 Node ≥ 20 + 系统 `tar`；Linux / macOS / Windows 通用。
 
-解包后：`RESTORE.md` + 3 份 JSON 清单 + `dsh-migrate/` + `payload/`。
+## 边界
 
-- 内容随包，清单只为可读
-- 逐文件 sha256（损坏检测，不是签名；清单与内容同时被改无法发现）
-- 清单是白名单：payload 里多出文件也退出 3
-- 默认 dry-run、默认不带凭据（`.npmrc` 也算凭据）
 - 不打包 `node_modules`，到新机器重装
-
-```bash
-node bin/dsh-migrate.mjs verify --bundle <dir>    # 体检
-node --test                                       # 测试
-```
-
-非 `web` profile 设 `DSH_PROFILE`；工作区是绝对路径，换机器需重设。
+- 默认不带凭据（`.credentials.yaml`、`.npmrc`）
+- sha256 是损坏检测，不是签名
+- 皮肤只搬已安装的；工作区绝对路径需重设
 
 MIT
